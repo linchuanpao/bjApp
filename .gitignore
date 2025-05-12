@@ -16,3 +16,4 @@ target/
 .DS_Store
 clpublic-test/_cat/
 /bin/
+.idea
