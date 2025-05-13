@@ -1,5 +1,6 @@
 package com.bj.controller.opportunity;
 
+import com.bj.common.model.vo.OpportunityInfoVo;
 import com.bj.service.opportunity.OpportunityService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +22,12 @@ public class OpportunityController {
     private OpportunityService opportunityService;
 
     @GetMapping("/opportunities/{id}")
-    public ResponseEntity<String> getOpportunityById(@PathVariable Long id) {
-        if (id == null) {
-            return ResponseEntity.badRequest().body("ID cannot be null");
+    public ResponseEntity<OpportunityInfoVo> getOpportunityById(@PathVariable Long id) {
+        if (id == null){
+            return ResponseEntity.badRequest().build();
         }
 
-        String result = opportunityService.queryById(id);
-        return ResponseEntity.ok(result);
+        OpportunityInfoVo opportunityInfoVo = opportunityService.queryById(id);
+        return ResponseEntity.ok(opportunityInfoVo);
     }
 }
