@@ -1,15 +1,15 @@
-package com.bj.controller;
+package com.bj;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ImportResource;
 
 
 @ComponentScan(basePackages = {"com.bj.*"})
+@MapperScan(basePackages = {"com.bj.dao.mapper"})
 //@ImportResource(value = {"classpath:/spring-tauth.xml", "classpath:/dubbo-config.xml","classpath:/spring-mvc.xml"})
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, RedisAutoConfiguration.class})
 public class ClApp {

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bj.dao.mapper.OpportunityMapper">
+  <resultMap id="BaseResultMap" type="com.bj.dao.bean.OpportunityDo">
+    <!--@mbg.generated-->
+    <!--@Table opportunity-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="opportunity_name" jdbcType="VARCHAR" property="opportunityName" />
+    <result column="project_name" jdbcType="VARCHAR" property="projectName" />
+    <result column="opportunity_amount" jdbcType="DECIMAL" property="opportunityAmount" />
+    <result column="expected_close_date" jdbcType="DATE" property="expectedCloseDate" />
+    <result column="notes" jdbcType="LONGVARCHAR" property="notes" />
+    <result column="product" jdbcType="VARCHAR" property="product" />
+    <result column="overall_discount" jdbcType="DECIMAL" property="overallDiscount" />
+    <result column="deposit_payment_date" jdbcType="DATE" property="depositPaymentDate" />
+    <result column="deposit_amount" jdbcType="DECIMAL" property="depositAmount" />
+    <result column="payment_method" jdbcType="BOOLEAN" property="paymentMethod" />
+    <result column="contract_amount" jdbcType="DECIMAL" property="contractAmount" />
+    <result column="signing_date" jdbcType="DATE" property="signingDate" />
+    <result column="sales_status" jdbcType="VARCHAR" property="salesStatus" />
+    <result column="opportunity_status" jdbcType="VARCHAR" property="opportunityStatus" />
+    <result column="delivery_date" jdbcType="DATE" property="deliveryDate" />
+    <result column="joint_debugging_date" jdbcType="DATE" property="jointDebuggingDate" />
+    <result column="initial_inspection_date" jdbcType="DATE" property="initialInspectionDate" />
+    <result column="final_inspection_date" jdbcType="DATE" property="finalInspectionDate" />
+    <result column="extended_info" jdbcType="VARCHAR" property="extendedInfo" />
+    <result column="automate_user_id" jdbcType="VARCHAR" property="automateUserId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, gmt_create, gmt_modified, opportunity_name, project_name, opportunity_amount, 
+    expected_close_date, notes, product, overall_discount, deposit_payment_date, deposit_amount, 
+    payment_method, contract_amount, signing_date, sales_status, opportunity_status, 
+    delivery_date, joint_debugging_date, initial_inspection_date, final_inspection_date, 
+    extended_info, automate_user_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from opportunity
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from opportunity
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.bj.dao.bean.OpportunityDo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into opportunity (gmt_create, gmt_modified, opportunity_name, 
+      project_name, opportunity_amount, expected_close_date, 
+      notes, product, overall_discount, 
+      deposit_payment_date, deposit_amount, payment_method, 
+      contract_amount, signing_date, sales_status, 
+      opportunity_status, delivery_date, joint_debugging_date, 
+      initial_inspection_date, final_inspection_date, extended_info, 
+      automate_user_id)
+    values (#{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{opportunityName,jdbcType=VARCHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{opportunityAmount,jdbcType=DECIMAL}, #{expectedCloseDate,jdbcType=DATE}, 
+      #{notes,jdbcType=LONGVARCHAR}, #{product,jdbcType=VARCHAR}, #{overallDiscount,jdbcType=DECIMAL}, 
+      #{depositPaymentDate,jdbcType=DATE}, #{depositAmount,jdbcType=DECIMAL}, #{paymentMethod,jdbcType=BOOLEAN}, 
+      #{contractAmount,jdbcType=DECIMAL}, #{signingDate,jdbcType=DATE}, #{salesStatus,jdbcType=VARCHAR}, 
+      #{opportunityStatus,jdbcType=VARCHAR}, #{deliveryDate,jdbcType=DATE}, #{jointDebuggingDate,jdbcType=DATE}, 
+      #{initialInspectionDate,jdbcType=DATE}, #{finalInspectionDate,jdbcType=DATE}, #{extendedInfo,jdbcType=VARCHAR}, 
+      #{automateUserId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.bj.dao.bean.OpportunityDo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into opportunity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="opportunityName != null">
+        opportunity_name,
+      </if>
+      <if test="projectName != null">
+        project_name,
+      </if>
+      <if test="opportunityAmount != null">
+        opportunity_amount,
+      </if>
+      <if test="expectedCloseDate != null">
+        expected_close_date,
+      </if>
+      <if test="notes != null">
+        notes,
+      </if>
+      <if test="product != null">
+        product,
+      </if>
+      <if test="overallDiscount != null">
+        overall_discount,
+      </if>
+      <if test="depositPaymentDate != null">
+        deposit_payment_date,
+      </if>
+      <if test="depositAmount != null">
+        deposit_amount,
+      </if>
+      <if test="paymentMethod != null">
+        payment_method,
+      </if>
+      <if test="contractAmount != null">
+        contract_amount,
+      </if>
+      <if test="signingDate != null">
+        signing_date,
+      </if>
+      <if test="salesStatus != null">
+        sales_status,
+      </if>
+      <if test="opportunityStatus != null">
+        opportunity_status,
+      </if>
+      <if test="deliveryDate != null">
+        delivery_date,
+      </if>
+      <if test="jointDebuggingDate != null">
+        joint_debugging_date,
+      </if>
+      <if test="initialInspectionDate != null">
+        initial_inspection_date,
+      </if>
+      <if test="finalInspectionDate != null">
+        final_inspection_date,
+      </if>
+      <if test="extendedInfo != null">
+        extended_info,
+      </if>
+      <if test="automateUserId != null">
+        automate_user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opportunityName != null">
+        #{opportunityName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null">
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="opportunityAmount != null">
+        #{opportunityAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="expectedCloseDate != null">
+        #{expectedCloseDate,jdbcType=DATE},
+      </if>
+      <if test="notes != null">
+        #{notes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="product != null">
+        #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="overallDiscount != null">
+        #{overallDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="depositPaymentDate != null">
+        #{depositPaymentDate,jdbcType=DATE},
+      </if>
+      <if test="depositAmount != null">
+        #{depositAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentMethod != null">
+        #{paymentMethod,jdbcType=BOOLEAN},
+      </if>
+      <if test="contractAmount != null">
+        #{contractAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="signingDate != null">
+        #{signingDate,jdbcType=DATE},
+      </if>
+      <if test="salesStatus != null">
+        #{salesStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="opportunityStatus != null">
+        #{opportunityStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryDate != null">
+        #{deliveryDate,jdbcType=DATE},
+      </if>
+      <if test="jointDebuggingDate != null">
+        #{jointDebuggingDate,jdbcType=DATE},
+      </if>
+      <if test="initialInspectionDate != null">
+        #{initialInspectionDate,jdbcType=DATE},
+      </if>
+      <if test="finalInspectionDate != null">
+        #{finalInspectionDate,jdbcType=DATE},
+      </if>
+      <if test="extendedInfo != null">
+        #{extendedInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="automateUserId != null">
+        #{automateUserId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bj.dao.bean.OpportunityDo">
+    <!--@mbg.generated-->
+    update opportunity
+    <set>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opportunityName != null">
+        opportunity_name = #{opportunityName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null">
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="opportunityAmount != null">
+        opportunity_amount = #{opportunityAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="expectedCloseDate != null">
+        expected_close_date = #{expectedCloseDate,jdbcType=DATE},
+      </if>
+      <if test="notes != null">
+        notes = #{notes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="product != null">
+        product = #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="overallDiscount != null">
+        overall_discount = #{overallDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="depositPaymentDate != null">
+        deposit_payment_date = #{depositPaymentDate,jdbcType=DATE},
+      </if>
+      <if test="depositAmount != null">
+        deposit_amount = #{depositAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentMethod != null">
+        payment_method = #{paymentMethod,jdbcType=BOOLEAN},
+      </if>
+      <if test="contractAmount != null">
+        contract_amount = #{contractAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="signingDate != null">
+        signing_date = #{signingDate,jdbcType=DATE},
+      </if>
+      <if test="salesStatus != null">
+        sales_status = #{salesStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="opportunityStatus != null">
+        opportunity_status = #{opportunityStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryDate != null">
+        delivery_date = #{deliveryDate,jdbcType=DATE},
+      </if>
+      <if test="jointDebuggingDate != null">
+        joint_debugging_date = #{jointDebuggingDate,jdbcType=DATE},
+      </if>
+      <if test="initialInspectionDate != null">
+        initial_inspection_date = #{initialInspectionDate,jdbcType=DATE},
+      </if>
+      <if test="finalInspectionDate != null">
+        final_inspection_date = #{finalInspectionDate,jdbcType=DATE},
+      </if>
+      <if test="extendedInfo != null">
+        extended_info = #{extendedInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="automateUserId != null">
+        automate_user_id = #{automateUserId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bj.dao.bean.OpportunityDo">
+    <!--@mbg.generated-->
+    update opportunity
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      opportunity_name = #{opportunityName,jdbcType=VARCHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      opportunity_amount = #{opportunityAmount,jdbcType=DECIMAL},
+      expected_close_date = #{expectedCloseDate,jdbcType=DATE},
+      notes = #{notes,jdbcType=LONGVARCHAR},
+      product = #{product,jdbcType=VARCHAR},
+      overall_discount = #{overallDiscount,jdbcType=DECIMAL},
+      deposit_payment_date = #{depositPaymentDate,jdbcType=DATE},
+      deposit_amount = #{depositAmount,jdbcType=DECIMAL},
+      payment_method = #{paymentMethod,jdbcType=BOOLEAN},
+      contract_amount = #{contractAmount,jdbcType=DECIMAL},
+      signing_date = #{signingDate,jdbcType=DATE},
+      sales_status = #{salesStatus,jdbcType=VARCHAR},
+      opportunity_status = #{opportunityStatus,jdbcType=VARCHAR},
+      delivery_date = #{deliveryDate,jdbcType=DATE},
+      joint_debugging_date = #{jointDebuggingDate,jdbcType=DATE},
+      initial_inspection_date = #{initialInspectionDate,jdbcType=DATE},
+      final_inspection_date = #{finalInspectionDate,jdbcType=DATE},
+      extended_info = #{extendedInfo,jdbcType=VARCHAR},
+      automate_user_id = #{automateUserId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
